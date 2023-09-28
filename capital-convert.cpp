@@ -2,15 +2,12 @@
 using namespace std;
 
 char convert(char ch){
-	if(ch>='A' && ch<='Z'){
+	if(ch>='A' && ch<='Z')
 		return ch+32;
-	}
-	else if(ch>='a' && ch<='z'){
+	else if(ch>='a' && ch<='z')
 		return ch-32;
-	}
-	else{
+	else
 		return ch;
-	}
 }
 
 int main(){
