@@ -29,30 +29,20 @@ void triangle()
 	else if (length[0] == length[1] || length[1] == length[2])
 	{
 		if (length[1] == length[2])
-		{
 			cout << "等腰锐角三角形" << endl;
-		}
 		else if (abs(sqSum - sqMax) < EPSILON)
-		{
 			cout << "等腰直角三角形" << endl;
-		}
-		else{
+		else
 			cout << "等腰钝角三角形" << endl;
-		}
 	}
 	
 	else{
 		if (abs(sqSum - sqMax) < EPSILON)
-		{
 			cout << "一般直角三角形" << endl;
-		}
 		else if (sqSum > sqMax + EPSILON)
-		{
 			cout << "一般锐角三角形" << endl;
-		}
-		else{
+		else
 			cout << "一般钝角三角形" << endl;
-		}
 	}
 	return;
 }
@@ -63,19 +53,18 @@ void dateCalc(){
 	int month, day;
 	cout << "输入月份和日期：";
 	cin >> month >> day;
-	string daysArr[7] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+	string daysArr[7] = {"周日", "周一", "周二", "周三", "周四", "周五", "周六"};
 	int count = 0;
 	if (month > 1)
 		for (int i = 0; i < month - 1; i++)
 			count += monthArr[i];
 	count += day;
-	cout << daysArr[count % 7 - 1] << endl;
+	cout  << "这一天是" << daysArr[count % 7 - 1] << endl;
 	return;
 }
 
 int main(){
-	while(1)
-		triangle();
-//	dateCalc();
+	triangle();
+	dateCalc();
 	return 0;
 }
