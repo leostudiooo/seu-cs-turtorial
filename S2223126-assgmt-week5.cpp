@@ -12,7 +12,7 @@ void triangle()
 	double sqSum = pow(length[0], 2) + pow(length[1], 2);
 	double sqMax = pow(length[2], 2);
 
-	// 浮点数和输入损失精度，引入误差范围 Epsilon
+	// 输入和浮点数运算损失精度，引入误差范围 Epsilon
 	const double EPSILON = 1e-2;
 
 	if (length[0] + length[1] <= length[2])
