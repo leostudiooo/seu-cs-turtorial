@@ -7,7 +7,7 @@ void triangle()
 	double length[3];
 	cout << "输入三角形的三条边长：";
 	cin >> length[0] >> length[1] >> length[2];
-	
+
 	sort(length, length + 3);
 
 	double sq12 = pow(length[0], 2) + pow(length[1], 2);
@@ -27,7 +27,7 @@ void triangle()
 	{
 		cout << "等边三角形" << endl;
 	}
-	
+
 	else if (length[0] == length[1] || length[1] == length[2])
 	{
 		if (length[1] == length[2])
@@ -37,8 +37,9 @@ void triangle()
 		else
 			cout << "等腰钝角三角形" << endl;
 	}
-	
-	else{
+
+	else
+	{
 		if (abs(sq12 - sq3) < EPSILON)
 			cout << "一般直角三角形" << endl;
 		else if (sq12 > sq3 + EPSILON)
@@ -49,9 +50,51 @@ void triangle()
 	return;
 }
 
-void dateCalc(){
+void sumCalc()
+{
+	int type, n;
+	cout << "输入计算类型（1，2，3，4，5）和 n（正整数）：";
+	cin >> type >> n;
+	double sum = 0;
+	switch (type)
+	{
+	case 1:
+		for (int i = 1; i <= n; i++)
+		{
+			int tmp = 1;
+			for (int j = 1; j <= i; j++)
+				tmp *= j;
+			sum += tmp;
+		}
+		break;
+	case 2:
+		for (int i = 1; i <= n; i += 2)
+			sum += i;
+		break;
+	case 3:
+		for (int i = 2; i <= n; i += 2)
+			sum += i;
+		break;
+	case 4:
+		for (int i = 1; i <= n; i++)
+			sum += pow(i, 2);
+		break;
+	case 5:
+		for (int i = 1; i <= n; i++)
+			sum += pow(i, -1);
+		break;
+	default:
+		cout << "输入错误" << endl;
+		return;
+	}
+	cout << "结果为：" << sum << endl;
+	return;
+}
+
+void dateCalc()
+{
 	// switch 太麻烦了，直接打表
-	int monthArr[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
+	int monthArr[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 	// 2023 年 1 月 1 日是周日
 	string daysArr[7] = {"周日", "周一", "周二", "周三", "周四", "周五", "周六"};
 	int month, day;
@@ -66,8 +109,10 @@ void dateCalc(){
 	return;
 }
 
-int main(){
+int main()
+{
 	triangle();
+	sumCalc();
 	dateCalc();
 	return 0;
 }
