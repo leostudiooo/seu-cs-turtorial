@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Check Focus</title>
+</head>
+<body>
+	<h1>Check Focus</h1>
+	<input type="text" id="myInput" placeholder="Type something...">
+	<p id="status"></p>
+
+	<script>
+		const status = document.getElementById('status');
+
+		window.addEventListener('blur', () => {
+			document.title = 'Page Lost Focus';
+			status.textContent = 'The page has lost focus.';
+		});
+
+		window.addEventListener('focus', () => {
+			document.title = 'Page Regained Focus';
+			status.textContent = 'The page has regained focus.';
+		});
+	</script>
+</body>
+</html>
