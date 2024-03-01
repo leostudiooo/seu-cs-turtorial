@@ -6,6 +6,9 @@
 */
 
 #include "circle.h"
+#include <iostream>
+#include <cmath>
+#include <string>
 
 const double EPSILON = 1e-6;
 
@@ -15,38 +18,74 @@ const double EPSILON = 1e-6;
 @param c2: circle 2
 @return: -2 for containing, -1 for inscribed, 0 for intersecting, 1 for circumscribed, 2 for disjoint
 */
-int judgeRelation(Circle &c1, Circle &c2);
+std::string judgeRelation(Circle &c1, Circle &c2);
 
 int main()
 {
+	Circle c1;
+	Circle c2(0,0,1);
+	c1.~Circle();
+	Circle c3=c2;
+	c3.setCenterRadius(1,1,1);
 
+	double arr[3];
+	c3.getCenterRadius(arr);
+
+	std::cout << "Area of c3: " << c3.getArea() << std::endl;
+	std::cout << "Perimeter of c3: " << c3.getPerimeter() << std::endl;
+
+	std::cout << "Relation between c2 and c3: " << judgeRelation(c2, c3) << std::endl;
 }
 
-int judgeRelation(Circle &c1, Circle &c2)
+std::string judgeRelation(Circle &c1, Circle &c2)
 {
-	double *centerRadius1 = c1.getCenterRadius();
-	double *centerRadius2 = c2.getCenterRadius();
-	double distance = sqrt(pow(centerRadius1[0] - centerRadius2[0], 2) + pow(centerRadius1[1] - centerRadius2[1], 2));
-	double radiusSum = centerRadius1[2] + centerRadius2[2];
-	double radiusDiff = fabs(centerRadius1[2] - centerRadius2[2]);
-	if (distance < EPSILON && radiusDiff < EPSILON)
+	double cr1[3], cr2[3];
+	c1.getCenterRadius(cr1);
+	c2.getCenterRadius(cr2);
+
+	double distance = sqrt(pow(cr1[0] - cr2[0], 2) + pow(cr1[1] - cr2[1], 2));
+	double r1 = cr1[2], r2 = cr2[2];
+
+	if (fabs(distance - r1 - r2) < EPSILON)
 	{
-		return -2;
+		return "circumscribed";
 	}
-	else if (distance < radiusDiff)
+	else if (fabs(distance - fabs(r1 - r2)) < EPSILON)
 	{
-		return -1;
+		return "inscribed";
 	}
-	else if (fabs(distance - radiusDiff) < EPSILON)
+	else if (distance > r1 + r2)
 	{
-		return 0;
+		return "disjoint";
 	}
-	else if (distance < radiusSum)
+	else if (distance < fabs(r1 - r2))
 	{
-		return 1;
+		return "containing";
 	}
 	else
 	{
-		return 2;
+		return "intersecting";
 	}
 }
+
+/*
+Output:
+PS X:\seu-cs-turtorial\exp-0301> c++ main.cpp circle.cpp circle.h -o main.exe
+PS X:\seu-cs-turtorial\exp-0301> ./main.exe
+Circle constructor called
+Circle constructor called
+Circle destructor called
+Circle copy constructor called
+Circle setCenterRadius() called
+Circle getCenterRadius() called
+Area of c3: Circle getArea() called
+3.14159
+Perimeter of c3: Circle getPerimeter() called
+6.28319
+Relation between c2 and c3: Circle getCenterRadius() called
+Circle getCenterRadius() called
+intersecting
+Circle destructor called
+Circle destructor called
+Circle destructor called
+*/

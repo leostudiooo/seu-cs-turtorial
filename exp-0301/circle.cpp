@@ -1,4 +1,6 @@
 #include "circle.h"
+#include <iostream>
+#include <cmath>
 
 Circle::Circle(double X, double Y, double Radius)
 {
@@ -24,11 +26,12 @@ void Circle::setCenterRadius(double X, double Y, double Radius)
 	std::cout << "Circle setCenterRadius() called" << std::endl;
 }
 
-double *Circle::getCenterRadius()
+void Circle::getCenterRadius(double arr[3])
 {
 	std::cout << "Circle getCenterRadius() called" << std::endl;
-	double CenterRadius[3] = {x, y, radius};
-	return CenterRadius;
+	arr[0] = x;
+	arr[1] = y;
+	arr[2] = radius;
 }
 
 double Circle::getArea()
