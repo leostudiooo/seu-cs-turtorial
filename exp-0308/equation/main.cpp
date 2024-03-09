@@ -6,7 +6,7 @@ int main()
 	Equation eq1;
 	Equation eq2(1, 2, 1);
 	Equation eq3(eq2);
-	int params[3] = {};
+	double params[3] = {};
 
 	std::cout << "Enter a, b, c: ";
 	std::cin >> params[0] >> params[1] >> params[2];
