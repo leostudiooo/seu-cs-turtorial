@@ -9,7 +9,7 @@ private:
 	double a, b, c;
 public:
 	Equation();
-	Equation(double a, double b, double c);
+	Equation(double, double, double);
 	Equation(const Equation &other);
 	~Equation();
 
