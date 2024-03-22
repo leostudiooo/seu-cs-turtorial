@@ -24,143 +24,149 @@ int main()
 		moneyList.Insert(Money(rand() % 1000 / 100.), i);
 	}
 
-	cout << "Original intList: " << intList << endl;
-	cout << "Original complexList: " << complexList << endl;
-	cout << "Original moneyList: " << moneyList << endl;
+	cout << "Original intList: " << endl << intList << endl;
+	cout << "Original complexList: " << endl << complexList << endl;
+	cout << "Original moneyList: " << endl << moneyList << endl;
 
 	intList.Sort(ASCENDING, BUBBLE);
 	complexList.Sort(DESCENDING, SELECTION);
 	moneyList.Sort(ASCENDING, INSERTION);
 
-	cout << "Sorted intList: " << intList << endl;
-	cout << "Sorted complexList: " << complexList << endl;
-	cout << "Sorted moneyList: " << moneyList << endl;
+	cout << "Sorted intList: " << endl << intList << endl;
+	cout << "Sorted complexList: " << endl << complexList << endl;
+	cout << "Sorted moneyList: " << endl << moneyList << endl;
 
 	cout << "intList.Find(5): " << intList.Find(5) << endl;
-	cout << "complexList.Find(Complex(5, 5)): " << complexList.Find(Complex(1, 1)) << endl;
-	cout << "moneyList.Find(Money(5.5)): " << moneyList.Find(Money(5.5)) << endl;
 
-	cout << "Inserting 5 at 5th position in intList: ";
-	intList.Insert(5, 5);
+	cout << "Inserting 5 at [5] in intList: " << endl;
+	cout << "Insert " << (intList.Insert(5, 5) ? "succeed" : "failed") << endl;
 	cout << intList << endl;
 
-	cout << "moneyList is " << (moneyList.IsFull() ? "" : "not ") << "full" << endl;
+	cout << "moneyList is " << (moneyList.IsFull() ? "" : "not ") << "full" << endl << endl;
 
-	cout << "The 2nd element in complexList is " << complexList.Get(2) << ". That is to say, complexList[1] is " << complexList[1] << endl;
+	cout << "The [1] element in complexList is " << complexList.Get(1) << ". That is to say, complexList[1] is " << complexList[1] << "." << endl << endl;
 
-	cout << "Remove the 3rd element in moneyList: ";
-	moneyList.Remove(3);
+	cout << "Remove 3.14 in moneyList: " << endl;
+	cout << "Remove " << (moneyList.Remove(3.14) ? "succeed" : "failed") << endl;
 	cout << moneyList << endl;
 
 	cout << "Let's assign comlexList to a new complexList_1: " << endl;
 	Seqlist<Complex, 10> complexList_1 = complexList;
-	cout << "complexList_1: " << complexList_1 << endl;
+	cout << "complexList_1: " << endl << complexList_1 << endl;
 
 	return 0;
 }
 /*
-Original intList: 5
-6
-6
-7
+Original intList: 
 0
-0
-7
-0
+9
+5
 4
-1
+8
+2
+8
+0
+8
+8
 
-Original complexList: 6 + 0i
-5 + 6i
-1 + 5i
-1 + 3i
+Original complexList:
+8 + 0i
+1 + 2i
+4 + 7i
+4 + 9i
+4 + 1i
+1 + 4i
+8 + 3i
 3 + 2i
-5 + 7i
-7 + 0i
-6 + 3i
-9 + 9i
-5 + 1i
+1 + 6i
+4 + 1i
 
-Original moneyList: CNY 0.13
-CNY 9.35
-CNY 5.3
-CNY 4.71
-CNY 9.34
-CNY 1.58
-CNY 5.72
-CNY 9.67
-CNY 5.85
-CNY 1.6
+Original moneyList:
+CNY 3.78
+CNY 9.42
+CNY 8.52
+CNY 7.59
+CNY 1.77
+CNY 1.45
+CNY 6.98
+CNY 9.05
+CNY 1.59
+CNY 6.41
 
-Sorted intList: 0
+Sorted intList:
 0
 0
-1
+2
 4
 5
-6
-6
-7
-7
+8
+8
+8
+8
+9
 
-Sorted complexList: 9 + 9i
-5 + 7i
-5 + 6i
-7 + 0i
-6 + 3i
-6 + 0i
-1 + 5i
-5 + 1i
+Sorted complexList:
+4 + 9i
+8 + 3i
+4 + 7i
+8 + 0i
+1 + 6i
+1 + 4i
+4 + 1i
+4 + 1i
 3 + 2i
-1 + 3i
+1 + 2i
 
-Sorted moneyList: CNY 0.13
-CNY 1.58
-CNY 1.6
-CNY 4.71
-CNY 5.3
-CNY 5.72
-CNY 5.85
-CNY 9.34
-CNY 9.35
-CNY 9.67
+Sorted moneyList:
+CNY 1.45
+CNY 1.59
+CNY 1.77
+CNY 3.78
+CNY 6.41
+CNY 6.98
+CNY 7.59
+CNY 8.52
+CNY 9.05
+CNY 9.42
 
-intList.Find(5): 5
-complexList.Find(Complex(5, 5)): -1
-moneyList.Find(Money(5.5)): -1
-Inserting 5 at 5th position in intList: 0
+intList.Find(5): 4
+Inserting 5 at 5th position in intList:
 0
 0
-1
+2
 4
 5
-6
-6
-7
-7
+8
+8
+8
+8
+9
 
 moneyList is full
-The 2nd element in complexList is 5 + 6i. That is to say, complexList[1] is 5 + 7i
-Remove the 3rd element in moneyList: CNY 0.13
-CNY 1.58
-CNY 1.6
-CNY 4.71
-CNY 5.3
-CNY 5.72
-CNY 5.85
-CNY 9.34
-CNY 9.35
-CNY 9.67
+The [1] element in complexList is 8 + 3i. That is to say, complexList[1] is 8 + 3i.
+
+Remove the 3rd element in moneyList:
+CNY 1.45
+CNY 1.59
+CNY 1.77
+CNY 3.78
+CNY 6.41
+CNY 6.98
+CNY 7.59
+CNY 8.52
+CNY 9.05
+CNY 9.42
 
 Let's assign comlexList to a new complexList_1:
-complexList_1: 9 + 9i
-5 + 7i
-5 + 6i
-7 + 0i
-6 + 3i
-6 + 0i
-1 + 5i
-5 + 1i
+complexList_1:
+4 + 9i
+8 + 3i
+4 + 7i
+8 + 0i
+1 + 6i
+1 + 4i
+4 + 1i
+4 + 1i
 3 + 2i
-1 + 3i
+1 + 2i
 */

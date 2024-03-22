@@ -23,6 +23,7 @@ enum Type
 
 enum Order
 {
+    EMPTY = -1,
     OUT_OF_ORDER = 0,
     ASCENDING_ORDER = 1,
     DESCENDING_ORDER = 2,
@@ -79,10 +80,6 @@ public:
 
     Order isSorted();
 
-    /*
-     * @param type: 1 for ascending order, 0 for descending order
-     * @param method: 1 for bubble sort, 2 for selection sort, 3 for insertion sort
-     */
     void Sort(Type type, Method method);
 
     // I/O
@@ -124,7 +121,8 @@ ostream &operator<<(ostream &os, const Seqlist<Q, n> &m)
 }
 
 template <typename T, int size>
-void Seqlist<T, size>::Sort(Type type, Method method)
+void Seqlist<T, size>::
+Sort(Type type, Method method)
 {
     switch (method)
     {
@@ -141,7 +139,8 @@ void Seqlist<T, size>::Sort(Type type, Method method)
 }
 
 template <typename T, int size>
-int Seqlist<T, size>::simpleSearch(const T &x) const
+int Seqlist<T, size>::
+simpleSearch(const T &x) const
 {
 	for (int i = 0; i <= last; i++)
 	{
@@ -152,7 +151,8 @@ int Seqlist<T, size>::simpleSearch(const T &x) const
 }
 
 template <typename T, int size>
-int Seqlist<T, size>::binarySearch(const T &x) const
+int Seqlist<T, size>::
+binarySearch(const T &x) const
 {
 	if (isOrdered == OUT_OF_ORDER)
     {
@@ -196,7 +196,8 @@ int Seqlist<T, size>::binarySearch(const T &x) const
 }
 
 template <typename T, int size>
-int Seqlist<T, size>::Find(const T &x) const
+int Seqlist<T, size>::
+Find(const T &x) const
 {
 	if (isOrdered == OUT_OF_ORDER || isOrdered == ALL_EQUALS)
 		return simpleSearch(x);
@@ -205,7 +206,8 @@ int Seqlist<T, size>::Find(const T &x) const
 }
 
 template <typename T, int size>
-bool Seqlist<T, size>::IsIn(const T &x) const
+bool Seqlist<T, size>::
+IsIn(const T &x) const
 {
 	if (Find(x) == -1)
 		return false;
@@ -214,31 +216,34 @@ bool Seqlist<T, size>::IsIn(const T &x) const
 }
 
 template <typename T, int size>
-bool Seqlist<T, size>::Insert(const T &x, int i)
+bool Seqlist<T, size>::
+Insert(const T &x, int i)
 {
-	if (i < 0 || i > last + 1 || last == maxSize - 1)
+	if (i < 0 || i > last + 1)
 		return false;
-	for (int j = last; j >= i; j--)
-		slist[j + 1] = slist[j];
+    for (int j = last; j >= i; j--)
+        slist[j + 1] = slist[j];
 	slist[i] = x;
-	last++;
+	if (last < maxSize - 1) last++;
 	return true;
 }
 
 template <typename T, int size>
-bool Seqlist<T, size>::Remove(const T &x)
+bool Seqlist<T, size>::
+Remove(const T &x)
 {
     int i = Find(x);
     if (i == -1)
         return false;
     for (int j = i; j < last; j++)
         slist[j] = slist[j + 1];
-    last--;
+    if (last > 0) last--;
     return true;
 }
 
 template <typename T, int size>
-int Seqlist<T, size>::Next(const T &x)
+int Seqlist<T, size>::
+Next(const T &x)
 {
     int i = Find(x);
     if (i == -1 || i == last)
@@ -248,7 +253,8 @@ int Seqlist<T, size>::Next(const T &x)
 }
 
 template <typename T, int size>
-int Seqlist<T, size>::Prior(const T &x)
+int Seqlist<T, size>::
+Prior(const T &x)
 {
     int i = Find(x);
     if (i == -1 || i == 0)
@@ -258,19 +264,22 @@ int Seqlist<T, size>::Prior(const T &x)
 }
 
 template <typename T, int size>
-bool Seqlist<T, size>::IsEmpty()
+bool Seqlist<T, size>::
+IsEmpty()
 {
     return last == -1;
 }
 
 template <typename T, int size>
-bool Seqlist<T, size>::IsFull()
+bool Seqlist<T, size>::
+IsFull()
 {
     return last == maxSize - 1;
 }
 
 template <typename T, int size>
-T Seqlist<T, size>::Get(int i)
+T Seqlist<T, size>::
+Get(int i)
 {
     if (i < 0 || i > last)
     {
@@ -281,7 +290,8 @@ T Seqlist<T, size>::Get(int i)
 }
 
 template <typename T, int size>
-T &Seqlist<T, size>::operator[](int i)
+T &Seqlist<T, size>::
+operator[](int i)
 {
     if (i < 0 || i > last)
     {
@@ -292,7 +302,8 @@ T &Seqlist<T, size>::operator[](int i)
 }
 
 template <typename T, int size>
-Seqlist<T, size> Seqlist<T, size>::operator=(const Seqlist &arr)
+Seqlist<T, size> Seqlist<T, size>::
+operator=(const Seqlist &arr)
 {
     last = arr.last;
     for (int i = 0; i <= last; i++)
@@ -301,7 +312,8 @@ Seqlist<T, size> Seqlist<T, size>::operator=(const Seqlist &arr)
 }
 
 template <typename T, int size>
-Order Seqlist<T, size>::isSorted()
+Order Seqlist<T, size>::
+isSorted()
 {
     if (last == -1)
     {
@@ -324,7 +336,8 @@ Order Seqlist<T, size>::isSorted()
 }
 
 template <typename T, int size>
-void Seqlist<T, size>::bubbleSort(Type type)
+void Seqlist<T, size>::
+bubbleSort(Type type)
 {
     if (last == -1)
     {
@@ -356,7 +369,8 @@ void Seqlist<T, size>::bubbleSort(Type type)
 }
 
 template <typename T, int size>
-void Seqlist<T, size>::selectionSort(Type type)
+void Seqlist<T, size>::
+selectionSort(Type type)
 {
     if (last == -1)
     {
@@ -394,7 +408,8 @@ void Seqlist<T, size>::selectionSort(Type type)
 }
 
 template <typename T, int size>
-void Seqlist<T, size>::insertionSort(Type type)
+void Seqlist<T, size>::
+insertionSort(Type type)
 {
     if (last == -1)
     {
