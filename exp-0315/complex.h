@@ -39,6 +39,7 @@ class Complex {
 		bool operator==(const Complex &) const;
 
 		friend std::ostream &operator<<(std::ostream &, const Complex &);
+		friend std::istream &operator>>(std::istream &, Complex &);
 
 };
 
@@ -157,6 +158,12 @@ std::ostream &operator<<(std::ostream &os, const Complex &c)
 {
 	os << c.real << (std::fabs(c.imag) < 0 ? " - " : " + ") << fabs(c.imag) << "i";
 	return os;
+}
+
+std::istream &operator>>(std::istream &is, Complex &c)
+{
+	is >> c.real >> c.imag;
+	return is;
 }
 
 #endif // COMPLEX_H_

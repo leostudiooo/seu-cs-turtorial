@@ -1,0 +1,108 @@
+Enter the number of complex numbers you want to enter: 5
+Enter 5 complex numbers, one each line:
+1 1 
+2 5
+0 -1
+5 3
+2 0
+You entered:
+1 + 1i
+2 + 5i
+0 + 1i
+5 + 3i
+2 + 0i
+After sorting:
+0 + 1i
+1 + 1i
+2 + 0i
+2 + 5i
+5 + 3i
+Max: 5 + 3i
+Basepair Matrix
+1. Known lines, type in columns for each line
+2. Known columns, type in lines
+3. Manually type in lines and columns for each line
+> 1
+Enter the number of columns for each line: 2 2 3 4 5
+A A 
+G G
+C C T
+A G T T
+T C A T A
+------
+Enter the number of complex numbers you want to enter: 10
+Enter 5 complex numbers, one each line:
+1 0 
+0 1
+2 3
+3 8
+10 10
+503 20
+5 2
+8 5
+2 2
+3 3 
+You entered:
+1 + 0i
+0 + 1i
+2 + 3i
+3 + 8i
+10 + 10i
+503 + 20i
+5 + 2i
+8 + 5i
+2 + 2i
+3 + 3i
+After sorting:
+1 + 0i
+0 + 1i
+2 + 2i
+2 + 3i
+3 + 3i
+5 + 2i
+3 + 8i
+8 + 5i
+10 + 10i
+503 + 20i
+Max: 503 + 20i
+Basepair Matrix
+1. Known lines, type in columns for each line
+2. Known columns, type in lines
+3. Manually type in lines and columns for each line
+> 2
+Enter the number of lines: 3
+C T C G A C A G G G 
+T G G G A T T T G G
+G A G A G C A C A C
+------
+Enter the number of complex numbers you want to enter: 3
+Enter 5 complex numbers, one each line:
+2 1
+1 0 
+8 10
+You entered:
+2 + 1i
+1 + 0i
+8 + 10i
+After sorting:
+1 + 0i
+2 + 1i
+8 + 10i
+Max: 8 + 10i
+Basepair Matrix
+1. Known lines, type in columns for each line
+2. Known columns, type in lines
+3. Manually type in lines and columns for each line
+> 3
+Enter the number of lines: 10
+Enter the number of columns for each line: 1 3 5 0 8 18 2 1 6 2  
+G 
+A T G
+C G A A C
+
+C T C T G G A C
+G G C C A T T T T C T G T T G A C G
+C T
+C
+A A G T G C
+T G
