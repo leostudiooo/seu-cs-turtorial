@@ -1,0 +1,13 @@
+Class Line: double a, b, c to express line a x + b y + c == 0.
+
+Member functions:
+1. default constructor
+2. constructor with param
+3. copy constructor
+4. solve the area of the triangle of A(-c/a, 0), B(-c/b, 0) and O(0,0)
+5. judge if two lines are parallel (or the same)
+6. reload operator++ to move the line 1 unit to the right
+7. reload operator>> to input a, b, and c.
+8. reload operator<< to output the equation of the line.
+
+Test all the member functions in main().
