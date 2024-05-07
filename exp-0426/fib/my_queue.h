@@ -50,4 +50,9 @@ public:
 		front = (front + 1) % maxSize;
 		return data;
 	}
+
+	T readQueue(int index) const
+	{
+		return elements[(front + index) % maxSize];
+	}
 };
