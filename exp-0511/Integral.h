@@ -11,7 +11,7 @@ protected:
 	double (*targetFunction)(double);
 
 public:
-	// 给每种积分每个函数都要造一个类也太麻烦了我直接拿指针传了
+	// Too troublesome to create a derived class for *each* target function. If we have 10 kinds of integral methods we'll have to implement 30 different derived classes, not to mention that there are countless functions to be integrated. I'll use a function pointer instead.
 	Integral(double (*fn)(double), double a, double b, int n): targetFunction(fn), lowerLimit(a), upperLimit(b), iteration(n), stepSize((b-a)/n), result(0) {}
 
 	virtual double integrate() { cout << "Integral::integrate()" << endl; return result; }
