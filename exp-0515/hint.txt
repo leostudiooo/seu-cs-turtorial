@@ -1,0 +1,13 @@
+A company's employees consist of managers, technicians, and salesmen. A development manager is both a manager and a technician, while a sales manager is both a manager and a salesman.
+
+Use the 'employee' class as a virtual base class, and derive the 'manager', 'technician', and 'salesman' classes from it. Then, further derive the 'development manager' and 'sales manager' classes.
+
+The 'employee' class attributes include name, employee ID, salary level, and monthly salary (basic salary plus performance salary). Operations include a monthly salary calculation function `pay()`, which requires input of leave days, and after deducting the appropriate salary, the actual basic salary is obtained.
+
+The 'technician' class's derived attributes include hourly additional allowance, monthly working hours, and research completion progress coefficient. The performance salary is the product of these three. It also includes a `pay()` function, with the total salary being the basic salary plus the performance salary.
+
+The 'salesman' class's derived attributes include monthly sales and bonus extraction percentage. The performance salary is the product of these two. It also includes a `pay()` function, with the total salary being the basic salary plus the performance salary.
+
+The 'manager' class's derived attributes include fixed bonus and performance coefficient. The performance salary is the product of these two. The total salary is also the basic salary plus the performance salary. However, in the 'development manager' class, the `pay()` function is half the sum of the performance salary as a manager and as a technician. In the 'sales manager' class, the `pay()` function is half the manager's fixed bonus, plus the product of the department's total sales and the bonus extraction percentage, which is the performance salary.
+
+Implement the salary management system through programming. Pay special attention to the definition and calling method of `pay()`: first use the same name override, then use runtime polymorphism.

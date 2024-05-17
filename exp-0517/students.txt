@@ -1,0 +1,6 @@
+Student	Alice	15	1000
+HighSchoolStudent	Bob	17	2000	5	100	2500
+HighSchoolStudent	Charlie	16	3000	6	200	4200
+CollegeStudent	David	21	6000	21.5	200	10300
+CollegeStudent	Eve	22	7000	22.5	300	13750
+CollegeStudent	Frank	20	6500	20	250	11500

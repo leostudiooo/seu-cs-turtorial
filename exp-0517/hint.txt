@@ -1,0 +1,23 @@
+第十三次上机实验（2024年5月17日）
+一、实验目的：练习继承与派生、多态性和文件读写
+二、实验内容
+1、以学生类student为基类，公有派生高中生类high_school_student和大学生类 college_student，成员组成如下，然后在学生类基础上构建了学生数组类student_array,完善成员函数定义。
+其中：
+（a）student包含: (1) 数据成员：姓名和年龄; (2) 成员函数：构造函数、计算费用、存入文件函数；
+（b）high_school_student: (1)增加数据成员: 书本数；(2) 修改继承的成员函数
+（c）college_student : (1)增加数据成员: 学分数；(2) 修改继承的成员函数
+（d）学生数组类: 
+class stu_array{
+    student *ls[20];
+    int last;
+public:
+stu_array(const char *filename) ;
+~stu_array();
+    stu_array &append(student *s);
+    void sort();     //根据费用排序
+    void save(const char *filename=NULL);
+};
+//注意：学生组类可以通过构造函数从磁盘文件中读入上次已经保存的学生收费信息（和保存格式一致）。
+2、在main中进行测试，测试的时候至少要在学生数组类中存入2个高中生2个中学生，对学生进行排序，并将排序后的结果保存入文本文件，每个学生一行，分别存名字（不能有空格）和费用，两者用空白符隔开。
+三、递交时间：周日晚8点。
+@全体成员

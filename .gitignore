@@ -38,3 +38,7 @@
 *.zip
 *.rar
 *.7z
+
+# macOS stuff
+.DS_Store
+*.dSYM/
