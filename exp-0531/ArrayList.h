@@ -33,7 +33,8 @@ public:
 
 	void orderedInsert(const T &);
 
-	friend ostream &operator<<(ostream &, const ArrayList<T> &);
+	template <typename U>
+	friend ostream &operator<<(ostream &, const ArrayList<U> &);
 };
 
 template <typename T>
@@ -130,8 +131,8 @@ void ArrayList<T>::orderedInsert(const T &element)
 	}
 }
 
-template <typename T>
-ostream &operator<<(ostream &destination, const ArrayList<T> &list)
+template <typename U>
+ostream &operator<<(ostream &destination, const ArrayList<U> &list)
 {
 	for (int i = 0; i <= list.maxCurrentIndex; i++)
 	{

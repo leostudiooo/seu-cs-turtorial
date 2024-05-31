@@ -1,0 +1,3 @@
+amen                am01      12        5         30        
+apple               ap-1      10        5         20        
+banana              ba02      22        1         5         

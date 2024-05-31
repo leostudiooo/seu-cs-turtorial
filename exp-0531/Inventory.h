@@ -40,14 +40,14 @@ istream &operator>>(istream &source, Inventory &inv)
 	if (&source == &cin)
 	{
 		cout << "Enter description: ";
-		source >> inv.description;
+		cin >> inv.description;
 		cout << "Enter part number: ";
 		source >> inv.partNumber;
 		cout << "Enter quantity: ";
 		source >> inv.quantity;
-		cout << "Enter costPrice: ";
+		cout << "Enter cost price: ";
 		source >> inv.costPrice;
-		cout << "Enter retailPrice: ";
+		cout << "Enter retail price: ";
 		source >> inv.retailPrice;
 	}
 	else
@@ -56,3 +56,37 @@ istream &operator>>(istream &source, Inventory &inv)
 	}
 	return source;
 }
+/* Console output:
+➜  exp-0531 git:(main) ✗ ./main
+Element already exists
+Enter new item? (y/n): y
+Enter description: apple
+Enter part number: ap01
+Enter quantity: 10
+Enter cost price: 5
+Enter retail price: 20
+maxCurrentIndex: 0 capacity: 2
+Continue? (y/n): y
+Enter description: banana
+Enter part number: ba02
+Enter quantity: 22
+Enter cost price: 1
+Enter retail price: 5
+maxCurrentIndex: 1 capacity: 2
+Continue? (y/n): y
+Enter description: amen
+Enter part number: am01
+Enter quantity: 12
+Enter cost price: 5
+Enter retail price: 30
+ArrayList is full
+maxCurrentIndex: 2 capacity: 4
+Continue? (y/n): n
+amen                am01      12        5         30        
+apple               ap01      10        5         20        
+banana              ba02      22        1         5         
+*/
+
+/* data.txt:
+
+*/
