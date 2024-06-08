@@ -77,7 +77,7 @@ bool Goods::operator>(const Goods &x)
 
 ostream &operator<<(ostream &out, const Goods &x)
 { // 在此补充本段代码，实现插入运算符<<重载（10分）
-	cout << right << setw(6) << "id:" << setw(6) << x.id << setw(12) << "goods_name:" << setw(10) << x.goods_name << setw(10) << "price:" << setw(10) << x.price << setw(10) << "num:" << setw(10) << x.num << setw(10) << "value:" << setw(10) << x.value;
+	out << right << setw(6) << "id:" << setw(6) << x.id << setw(12) << "goods_name:" << setw(10) << x.goods_name << setw(10) << "price:" << setw(10) << x.price << setw(10) << "num:" << setw(10) << x.num << setw(10) << "value:" << setw(10) << x.value;
 	return out;
 }
 
