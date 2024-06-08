@@ -204,11 +204,16 @@ template <typename T>
 void Manage<T>::save_file(const char *filename)
 {
 	// 在此补充本段代码，实现将堆区数组的信息保存到磁盘文件中（10分）
-	ofstream out(filename);
+	ofstream out(filename, ios::app);
 	for (int i = 0; i < num; i++)
 	{
 		out << g[i] << endl;
 	}
+	for(int i = 0; i < 10; i++)
+	{
+		out << ".";
+	}
+	out << "分割线" << endl;
 	out.close();
 }
 
